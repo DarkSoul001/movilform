@@ -1,0 +1,38 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 23-04-2019, 10:46:50
+    Author     : Dark
+*/
+body{
+    background-image: url(../img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+#r_cliente{
+    width: 65%;
+    margin: 0px auto;
+    margin-top: 30px;
+    background: white;
+    padding: 25px;
+    box-shadow: 0px 0px 2px gray;
+    
+    
+}
+label{
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 20px;
+}
+input{
+    width: 200px;
+    font-family: Arial;
+}
+button{
+    margin-left: 60px;
+    font-size: 18px;
+}
+
