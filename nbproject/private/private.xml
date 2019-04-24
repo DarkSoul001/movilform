@@ -5,16 +5,15 @@
         <group>
             <file>file:/C:/xampp/htdocs/movilform/controlador/contrato.php</file>
             <file>file:/C:/xampp/htdocs/movilform/vista/registro_contrato.php</file>
+            <file>file:/C:/xampp/htdocs/movilform/vista/modificar_contrato.php</file>
             <file>file:/C:/xampp/htdocs/movilform/controlador/controlador_contrato.php</file>
-            <file>file:/C:/xampp/htdocs/movilform/css/mapa.css</file>
-            <file>file:/C:/xampp/htdocs/movilform/vista/mapa.php</file>
             <file>file:/C:/xampp/htdocs/movilform/vista/index.php</file>
-            <file>file:/C:/xampp/htdocs/movilform/css/menu.css</file>
-            <file>file:/C:/xampp/htdocs/movilform/css/cliente.css</file>
+            <file>file:/C:/xampp/htdocs/movilform/vista/mapa.php</file>
+            <file>file:/C:/xampp/htdocs/movilform/clases/cliente.php</file>
+            <file>file:/C:/xampp/htdocs/movilform/controlador/cliente.php</file>
             <file>file:/C:/xampp/htdocs/movilform/js/contrato.js</file>
-            <file>file:/C:/xampp/htdocs/movilform/controlador/controlador_cliente.php</file>
-            <file>file:/C:/xampp/htdocs/movilform/css/contrato.css</file>
             <file>file:/C:/xampp/htdocs/movilform/js/cliente.js</file>
+            <file>file:/C:/xampp/htdocs/movilform/controlador/conexion.php</file>
         </group>
     </open-files>
 </project-private>

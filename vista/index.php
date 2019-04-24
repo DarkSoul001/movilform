@@ -34,6 +34,7 @@ and open the template in the editor.
                     </button>
                     <div class="dropdown-content">
                         <a href="registro_contrato.php">Registro</a>
+                        <a href="modificar_contrato.php">Modificar</a>
                     </div>
                 </div> 
                 <a href="mapa.php">Mapa</a>

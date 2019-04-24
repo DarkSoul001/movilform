@@ -66,5 +66,13 @@ class controlador_cliente {
             echo $ex->getTraceAsString();
         }
     }
+     public function traerContratos() {
+        try {
+            $sql = "select codigo_contrato,nombre_contrato from contrato;";
+            return $this->cone->sqlSelect($sql);
+        } catch (Exception $ex) {
+            echo $ex->getTraceAsString();
+        }
+    }
 
 }
