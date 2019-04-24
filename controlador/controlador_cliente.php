@@ -60,7 +60,6 @@ class controlador_cliente {
     public function seleccionarCliente($codigo) {
         try {
             $sql = "select direccion_comercial,nombre_fantasia,razon_social from cliente where codigo_cliente='$codigo';";
-            //$sql= str_replace("@1", $codigo, $sql);
             return $this->cone->sqlSelect($sql);
         } catch (Exception $ex) {
             echo $ex->getTraceAsString();

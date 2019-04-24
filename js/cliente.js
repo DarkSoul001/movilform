@@ -55,22 +55,27 @@ $(document).ready(function () {
             }
         });
     });
-    $("#buscar_cliente").click(()=>{
-        var codigo=document.getElementById("codigo_cliente_n").value;
-        var envio="buscar_cliente";
+    $("#buscar_cliente").click(() => {
+        //recuperamos el valor del codigo del cliente
+        var codigo = document.getElementById("codigo_cliente_n").value;
+        // creamos una variable para que el archivo php se ejecute la accion correcta
+        var envio = "buscar_cliente";
+        //enviamos los datos a traves de ajax
         $.ajax({
-            type:'POST',
-            url:'../controlador/cliente.php',
-            data:{envio:envio,codigo:codigo},
-            success: function(result){
-                var obj=JSON.parse(result);
-                    document.getElementById("razon_social_n").value=obj[2];
-                    document.getElementById("nombre_fantasia_n").value=obj[1];
-                    document.getElementById("direccion_comercial_n").value=obj[0];
+            type: 'POST',
+            url: '../controlador/cliente.php',
+            data: {envio: envio, codigo: codigo},
+            success: function (result) {
+                //recuperamos un objeto creado con json_encodey lo transformamos a json de javascript
+                var obj = JSON.parse(result);
+                //los valores almacenados en las distintas posiciones se los entregamos a los input segun corresponda
+                document.getElementById("razon_social_n").value = obj[2];
+                document.getElementById("nombre_fantasia_n").value = obj[1];
+                document.getElementById("direccion_comercial_n").value = obj[0];
             }
         });
     })
-     $("#modificar_cliente").click(function () {
+    $("#modificar_cliente").click(function () {
         // obtenemos el valor de todos los input
         var razon = document.getElementById("razon_social_n").value;
         var nombre = document.getElementById("nombre_fantasia_n").value;

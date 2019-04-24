@@ -26,7 +26,6 @@ if ($envio == "registrar_contrato") {
     $cliente = $_POST['cliente'];
     //verificamos que todas las variables tengan datos
     if ($cliente != "" && $codigo_contrato != "" && $nombre_contrato != "" && $direccion_contrato != "" && $latitud != "" && $longitud != "" && $nombre_contacto != "" && $telefono_contacto != "" && $correo != "") {
-
         //le pasamos los datos de las variables a la clase
         $contrato->setCodigo_contrato($codigo_contrato);
         $contrato->setNombre_contrato($nombre_contrato);
@@ -51,24 +50,31 @@ if ($envio == "registrar_contrato") {
     echo ($respuesta);
 }
 if ($envio == "direccion") {
-    $controlador = new controlador_contrato();
+    //llamamos al un metodo para traer todas las direcciones registradas para cargarlas en el mapa
     $reps = $controlador->traerDireciones();
     $res = array();
+    //recorremos la consulta devuelta por el metodo y almacenamos los valores en un arreglo
     while ($row = $reps->fetch_assoc()) {
         $res[] = $row;
     }
+    //enviamos el arreglo en formato json a la pagina
     echo json_encode($res);
 }
-if ($envio=="buscar_contrato") {
-    $codigo=$_POST['codigo'];
-    if ($codigo!='0') {
-        $resp=$controlador->SelectContrato($codigo);
-        $arreglo=array();
+if ($envio == "buscar_contrato") {
+    //recuperamos todas las variables para buscar a un contrato
+    $codigo = $_POST['codigo'];
+    //verificamos que las variables no sea 0
+    if ($codigo != '0') {
+        //llamamos al metodo para buscar un contrato y le entregamos la variable del codigo del contrato
+        $resp = $controlador->SelectContrato($codigo);
+        $arreglo = array();
+        //recorremos la consulta devuelto del metodo y lo agregamos valor por valor a un arreglo
         while ($row = $resp->fetch_assoc()) {
-            $arreglo[]=$row;
+            $arreglo[] = $row;
         }
+        //enviamos el arreglo en formato json a la pagina
         echo json_encode($arreglo);
-    }else{
+    } else {
         echo 'Debe seleccionar un contrato';
     }
 }
@@ -85,7 +91,6 @@ if ($envio == "modificar_contrato") {
     $cliente = $_POST['cliente'];
     //verificamos que todas las variables tengan datos
     if ($cliente != "" && $codigo_contrato != "" && $nombre_contrato != "" && $direccion_contrato != "" && $latitud != "" && $longitud != "" && $nombre_contacto != "" && $telefono_contacto != "" && $correo != "") {
-
         //le pasamos los datos de las variables a la clase
         $contrato->setCodigo_contrato($codigo_contrato);
         $contrato->setNombre_contrato($nombre_contrato);
