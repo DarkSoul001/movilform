@@ -1,7 +1,7 @@
 <?php
 class conexion {
 
-    private $server = "localhost";
+    private $host = "localhost";
     private $base = "movilform";
     private $user = "root";
     private $pass = "";
@@ -9,7 +9,7 @@ class conexion {
     
     public function conexion(){
         try {
-        $this->conexion= new mysqli($this->server, $this->user, $this->pass, $this->base);    
+        $this->conexion= new mysqli($this->host, $this->user, $this->pass, $this->base);    
         } catch (Exception $ex) {
             echo $ex->getTraceAsString();
         }

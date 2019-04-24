@@ -42,7 +42,7 @@ and open the template in the editor.
                             position: results[0].geometry.location
                         });
                     } else {
-                        alert('Geocode was not successful for the following reason: ' + status);
+                        alert('Geocodificación no fue exitosa por la siguiente razón: ' + status);
                     }
                 });
             }
