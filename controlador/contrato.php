@@ -9,6 +9,9 @@ include 'conexion.php';
 include '../clases/contrato.php';
 include 'controlador_contrato.php';
 $envio = $_POST['envio'];
+//inicializamos las clases de contrato y el controlador para realizar el registro
+$contrato = new contrato();
+$controlador = new controlador_contrato();
 //registramos un nuevo contrato
 if ($envio == "registrar_contrato") {
     //recojemos todas las variables que enviamos por post
@@ -23,9 +26,7 @@ if ($envio == "registrar_contrato") {
     $cliente = $_POST['cliente'];
     //verificamos que todas las variables tengan datos
     if ($cliente != "" && $codigo_contrato != "" && $nombre_contrato != "" && $direccion_contrato != "" && $latitud != "" && $longitud != "" && $nombre_contacto != "" && $telefono_contacto != "" && $correo != "") {
-        //inicializamos las clases de contrato y el controlador para realizar el registro
-        $contrato = new contrato();
-        $controlador = new controlador_contrato();
+
         //le pasamos los datos de las variables a la clase
         $contrato->setCodigo_contrato($codigo_contrato);
         $contrato->setNombre_contrato($nombre_contrato);

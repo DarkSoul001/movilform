@@ -25,6 +25,7 @@ and open the template in the editor.
                     </button>
                     <div class="dropdown-content">
                         <a href="registro_cliente.php">Registro</a>
+                        <a href="modificar_cliente.php">Modificar</a>
                     </div>
                 </div> 
                 <div class="dropdown">

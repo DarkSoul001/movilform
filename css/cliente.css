@@ -19,8 +19,8 @@ body{
     background: white;
     padding: 25px;
     box-shadow: 0px 0px 2px gray;
-    
-    
+
+
 }
 label{
     padding-left: 30px;
@@ -31,8 +31,16 @@ input{
     width: 200px;
     font-family: Arial;
 }
+select{
+    width: 200px;
+    font-family: Arial;
+}
 button{
     margin-left: 60px;
     font-size: 18px;
+}
+#buscar_cliente{
+    margin-left: 5px;
+    font-size: 15px;
 }
 

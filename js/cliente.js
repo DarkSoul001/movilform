@@ -55,4 +55,37 @@ $(document).ready(function () {
             }
         });
     });
+    $("#buscar_cliente").click(()=>{
+        var codigo=document.getElementById("codigo_cliente_n").value;
+        var envio="buscar_cliente";
+        $.ajax({
+            type:'POST',
+            url:'../controlador/cliente.php',
+            data:{envio:envio,codigo:codigo},
+            success: function(result){
+                var obj=JSON.parse(result);
+                    document.getElementById("razon_social_n").value=obj[2];
+                    document.getElementById("nombre_fantasia_n").value=obj[1];
+                    document.getElementById("direccion_comercial_n").value=obj[0];
+            }
+        });
+    })
+     $("#modificar_cliente").click(function () {
+        // obtenemos el valor de todos los input
+        var razon = document.getElementById("razon_social_n").value;
+        var nombre = document.getElementById("nombre_fantasia_n").value;
+        var direccion = document.getElementById("direccion_comercial_n").value;
+        var codigo = document.getElementById("codigo_cliente_n").value;
+        // creamos una variable para que el archivo php se ejecute la accion correcta
+        var envio = "modificar_cliente";
+        //enviamos los datos a traves de ajax
+        $.ajax({
+            type: 'POST',
+            data: {envio: envio, razon: razon, nombre: nombre, direccion: direccion, codigo: codigo},
+            url: "../controlador/cliente.php",
+            success: function (result) {
+                console.log(result);
+            }
+        });
+    });
 });
