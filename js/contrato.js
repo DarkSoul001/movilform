@@ -116,7 +116,21 @@ $(document).ready(() => {
             }
         });
     });
-
+    $("#limpiar").click(() => {
+        //a todos los input del html de entregamos un valor en blanco y al select le cambiamos la posisio a la 0
+        document.getElementById("codigo_contrato").value="";
+        document.getElementById("nombre_contrato").value="";
+        document.getElementById("address").value="";
+        document.getElementById("latitud").value="";
+        document.getElementById("longitud").value="";
+        document.getElementById("nombre_contacto").value="";
+        document.getElementById("telefono_contacto").value="";
+        document.getElementById("cliente").value=0;
+        for (var i = 1; i <= num; ) {
+            document.getElementById("correo_" + i).value = "";
+            i++;
+        }
+    })
 });
 
 

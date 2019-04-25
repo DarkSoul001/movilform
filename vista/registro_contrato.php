@@ -28,9 +28,12 @@ and open the template in the editor.
                 var address = document.getElementById('address').value;
                 geocoder.geocode({'address': address}, function (results, status) {
                     if (status == 'OK') {
+                        console.log(results.length);
+                        console.log(address);
                         map.setCenter(results[0].geometry.location);
                         var la = results[0].geometry.location.lat();
                         var lo = results[0].geometry.location.lng();
+                        console.log("la "+la+" lng "+lo);
                         document.getElementById("latitud").value = la;
                         document.getElementById("longitud").value = lo;
                         var marker = new google.maps.Marker({
@@ -102,7 +105,8 @@ and open the template in the editor.
                         <td><input type="email" id="correo_1"/><button id="addCorreo">Añadir Correo</button></td>
                     </tr>
                 </table>
-                <div><button id="registrar_contrato">Registrar Contrato</button><button>Limpiar</button></div>
+                <div><button id="registrar_contrato">Registrar Contrato</button>
+                    <button id="limpiar">Limpiar</button></div>
                 <div id="map" style="width: 320px; height: 480px; margin-left: 80px;margin-top: 20px"></div>
             </div>
         </div>

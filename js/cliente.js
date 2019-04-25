@@ -93,4 +93,10 @@ $(document).ready(function () {
             }
         });
     });
+    $("#limpiar").click(()=>{
+        document.getElementById("razon_social").value="";
+        document.getElementById("nombre_fantasia").value="";
+        document.getElementById("direccion_comercial").value="";
+        document.getElementById("codigo_cliente").value="";
+    });
 });
