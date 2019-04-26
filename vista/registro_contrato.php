@@ -14,6 +14,7 @@ and open the template in the editor.
         <script>
             var geocoder;
             var map;
+            var marcadores = [];
             function initialize() {
                 geocoder = new google.maps.Geocoder();
                 var latlng = new google.maps.LatLng(-34.397, 150.644);
@@ -23,23 +24,34 @@ and open the template in the editor.
                 }
                 map = new google.maps.Map(document.getElementById('map'), mapOptions);
             }
-
+            function addMarker(location) {
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: location
+                });
+                marcadores.push(marker);
+            }
+            function setMapOnAll(map) {
+                for (var i = 0; i < marcadores.length; i++) {
+                    marcadores[i].setMap(map);
+                }
+            }
+            function deleteMarkers() {
+                setMapOnAll(null);
+                markers = [];
+            }
             function codeAddress() {
+                deleteMarkers();
                 var address = document.getElementById('address').value;
                 geocoder.geocode({'address': address}, function (results, status) {
                     if (status == 'OK') {
-                        console.log(results.length);
-                        console.log(address);
                         map.setCenter(results[0].geometry.location);
                         var la = results[0].geometry.location.lat();
                         var lo = results[0].geometry.location.lng();
-                        console.log("la "+la+" lng "+lo);
+                        var location = results[0].geometry.location;
                         document.getElementById("latitud").value = la;
                         document.getElementById("longitud").value = lo;
-                        var marker = new google.maps.Marker({
-                            map: map,
-                            position: results[0].geometry.location
-                        });
+                        addMarker(location)
                     } else {
                         alert('Geocodificación no fue exitosa por la siguiente razón: ' + status);
                     }

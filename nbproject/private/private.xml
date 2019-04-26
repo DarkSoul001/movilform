@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/movilform/controlador/contrato.php</file>
-            <file>file:/C:/xampp/htdocs/movilform/controlador/cliente.php</file>
+            <file>file:/C:/xampp/htdocs/movilform/vista/modificar_contrato.php</file>
+            <file>file:/C:/xampp/htdocs/movilform/vista/registro_contrato.php</file>
+            <file>file:/C:/xampp/htdocs/movilform/vista/registro_cliente.php</file>
+            <file>file:/C:/xampp/htdocs/movilform/vista/modificar_cliente.php</file>
             <file>file:/C:/xampp/htdocs/movilform/js/cliente.js</file>
-            <file>file:/C:/xampp/htdocs/movilform/controlador/controlador_cliente.php</file>
             <file>file:/C:/xampp/htdocs/movilform/js/contrato.js</file>
         </group>
     </open-files>

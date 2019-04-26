@@ -13,7 +13,7 @@ and open the template in the editor.
         <?php
         include 'index.php';
         include '../controlador/controlador_cliente.php';
-        $controlador=new controlador_cliente();
+        $controlador = new controlador_cliente();
         ?>
         <script>
             var geocoder;
@@ -27,20 +27,34 @@ and open the template in the editor.
                 }
                 map = new google.maps.Map(document.getElementById('map'), mapOptions);
             }
-
+            function addMarker(location) {
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: location
+                });
+                marcadores.push(marker);
+            }
+            function setMapOnAll(map) {
+                for (var i = 0; i < marcadores.length; i++) {
+                    marcadores[i].setMap(map);
+                }
+            }
+            function deleteMarkers() {
+                setMapOnAll(null);
+                markers = [];
+            }
             function codeAddress() {
+                deleteMarkers();
                 var address = document.getElementById('address').value;
                 geocoder.geocode({'address': address}, function (results, status) {
                     if (status == 'OK') {
                         map.setCenter(results[0].geometry.location);
                         var la = results[0].geometry.location.lat();
                         var lo = results[0].geometry.location.lng();
+                        var location = results[0].geometry.location;
                         document.getElementById("latitud").value = la;
                         document.getElementById("longitud").value = lo;
-                        var marker = new google.maps.Marker({
-                            map: map,
-                            position: results[0].geometry.location
-                        });
+                        addMarker(location)
                     } else {
                         alert('Geocodificación no fue exitosa por la siguiente razón: ' + status);
                     }
@@ -65,7 +79,7 @@ and open the template in the editor.
                                 $res = $controlador->traerContratos();
                                 echo '<option value="0">Seleccione Contrato</option>';
                                 while ($row = mysqli_fetch_array($res)) {
-                                    echo '<option value="' . $row[0] . '">' .$row[0]." ". $row[1] . '</option>';
+                                    echo '<option value="' . $row[0] . '">' . $row[0] . " " . $row[1] . '</option>';
                                 }
                                 ?>
                             </select>
